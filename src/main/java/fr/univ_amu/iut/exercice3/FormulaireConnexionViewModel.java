@@ -63,7 +63,13 @@ public class FormulaireConnexionViewModel {
   public void connecterCommand() {
     // TODO exercice 3 : implémenter la commande de connexion.
     //
-
+    statut.set("en cours");
+    Boolean connexion = serviceAuth.connecter(identifiant.get(), motDePasse.get());
+    if (connexion == true) {
+      statut.set("Bienvenue " + identifiant.get() + " !");
+    } else {
+      statut.set("Identifiants incorrects. Vérifiez votre saisie.");
+    }
     // 1. Publier "Connexion en cours..." dans statut.
     // 2. Demander au serviceAuth de connecter identifiant + motDePasse.
     // 3. Selon le résultat, publier un message clair dans statut :
