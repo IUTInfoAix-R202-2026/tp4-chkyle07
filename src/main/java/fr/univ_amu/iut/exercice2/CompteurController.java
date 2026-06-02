@@ -1,5 +1,6 @@
 package fr.univ_amu.iut.exercice2;
 
+import javafx.beans.binding.Bindings;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
@@ -23,20 +24,21 @@ public class CompteurController {
   @FXML
   private void initialize() {
     // TODO exercice 2 : lier le texte du label au message du ViewModel.
+    labelCompteur.textProperty().bind(Bindings.concat(viewModel.messageProperty()));
   }
 
   @FXML
   private void surIncrementer() {
-    // TODO exercice 2 : appeler la commande du ViewModel.
+    viewModel.incrementerCommand();
   }
 
   @FXML
   private void surDecrementer() {
-    // TODO exercice 2 : appeler la commande du ViewModel.
+    viewModel.decrementerCommand();
   }
 
   @FXML
   private void surReinitialiser() {
-    // TODO exercice 2 : appeler la commande du ViewModel.
+    viewModel.reinitialiserCommand();
   }
 }
